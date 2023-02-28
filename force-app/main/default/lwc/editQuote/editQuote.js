@@ -50,6 +50,5 @@ export default class EditQuote extends LightningElement {
     .then(result =>{
        alert('Data Updated');
     })
-    objDto
   }
 }
