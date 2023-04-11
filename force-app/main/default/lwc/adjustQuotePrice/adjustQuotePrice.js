@@ -3,9 +3,18 @@
  * Copyright (c) 2023 Provus Inc. All rights reserved.
  */
 
-import { LightningElement } from "lwc";
-
-export default class AdjustQuotePrice extends LightningElement {
+import { api } from "lwc";
+import LightningModal from 'lightning/modal';
+export default class AdjustQuotePrice extends LightningModal {
   adjustedAmountLabel = "Adjusted Amount";
-  adjustedAmount = 0;
+  @api adjustedAmount;
+  handleFieldChange(event){
+    this.adjustedAmount = event.target.value;
+  }
+  handleOkay(){
+    if(this.adjustedAmount && this.adjustedAmount!=null && this.adjustedAmount>=0 ||this.adjustedAmount<0)
+      this.close({amount:this.adjustedAmount}); 
+    else
+      alert('Adjusted Amount is required.');
+  }
 }

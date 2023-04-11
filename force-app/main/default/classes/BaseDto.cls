@@ -32,6 +32,16 @@ public with sharing abstract class BaseDto {
   public Boolean isDelete() {
     return operationType == OPERATION_TYPE_DELETE;
   }
+  
+  public void save() {
+      if(isInsert()) {
+          insert sObj;
+      } else if(isUpdate()) {
+          update sObj;
+      } else if(isDelete()) {
+          delete sObj;
+      }
+  }
 
   abstract public SObject refreshSo();
 }
