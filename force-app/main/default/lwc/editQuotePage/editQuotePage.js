@@ -7,4 +7,8 @@ import { LightningElement, api } from "lwc";
 
 export default class EditQuotePage extends LightningElement {
   @api recordId;
+  quoteAmnt;
+  handleQuteAmntSet(event){
+    this.quoteAmnt = event.detail;
+  }
 }
