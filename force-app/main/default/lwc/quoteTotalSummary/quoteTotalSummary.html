@@ -7,6 +7,10 @@
       variant="brand"
       type="button"
       label="Adjust quote"
+      onclick={openModal}
     ></lightning-button>
+    <template if:true={showModalComponent}>
+      <c-adjust-quote-price record-id={recordId} adjusted-amount={qtamt} onclosemodal={closeModal} ></c-adjust-quote-price>
+    </template>
   </div>
 </template>
